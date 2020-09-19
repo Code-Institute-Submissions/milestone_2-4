@@ -1,14 +1,18 @@
 /* Main game style */
 
+.heading {
+    padding-bottom: 30px;
+}
+
 .stephen-game {
   margin: auto;
-  margin-top: 20px;
-  height: 400px;
-  width: 400px;
+  height: 387px;
+  width: 375px;
   border-radius: 50%;
   padding: 20px;
   position: relative;
   box-shadow: 0 0 20px 5px black;
+  padding-bottom: 30px;
 }
 
 
@@ -46,6 +50,12 @@
 
 /* Controls */
 
+.controls button {
+    width: 80px;
+    height: 60px;
+}
+
+
 .start {
 
 }
@@ -54,8 +64,14 @@
 
 }
 
-.difficulty {
+.controls {
+   padding-top: 30px;
+}
 
+
+.difficulty button {
+    width: 70px;
+    height: 60px;
 }
 
 .dif-plus {
