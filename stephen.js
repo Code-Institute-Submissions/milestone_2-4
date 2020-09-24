@@ -7,6 +7,7 @@ let flash;
 let turn;
 let correct;         
 let cpuTurn;
+let breakId;
 let difficult = false;  
 let power = false;
 let win ; 
@@ -33,6 +34,52 @@ difficultyButton.addEventListener('click', (event) => {
     
 })
 
+powerButton.addEventListener('click', (event) => {
+    if (powerButton.checked == true) {
+        power = true;
+        console.log("Power is On")
+        turnCounter.innerHTML = "-";
+    } else {
+        power = false ;
+        console.log("Power is off")
+        turnCounter.innerHTML = "";
+        resetColor();
+        resetBreak(breakId);
+    }
+});
+
+startButton.addEventListener('click', (event) => {
+    if(power || win ) {
+        play();   // main play game function
+    }
+    
+});
+
+
+function play() {
+    win = false;
+    order = [];
+    playerOrder = [];
+    flash = 0;
+    breakId = 0;
+    turn = 1 ;
+    turnCounter.innerHTML = 1;
+    correct = true;
+    for (var i = 0 ; i < 20; i++) {
+        order.push(Math.floor(Math.random() *4) + 1);    // create's an array of 20 random numbers between 1 and 4.
+    }
+    console.log(order)
+    cpuTurn = True;
+
+    breakId = setInterval(gameStage, 800);
+}
+
+function gameStage() {
+    
+}
+
+
+
 
 topLeft.addEventListener('click', (event) => {
     console.log("test TL");
@@ -49,18 +96,5 @@ bottomLeft.addEventListener('click', (event) => {
     console.log("test BL");
 })
 
-powerButton.addEventListener('click', (event) => {
-    if (powerButton.checked == true) {
-        power = true;
-        console.log("Power is On")
-    } else {
-        power = false ;
-        console.log("Power is off")
-    }
-})
 
-startButton.addEventListener('click', (event) => {
-    console.log("test start");
-    
-})
 
