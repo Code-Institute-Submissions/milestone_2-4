@@ -75,8 +75,43 @@ function play() {
 }
 
 function gameStage() {
+    power = false;
+
+    if (flash == turn){
+        resetBreak(breakId);
+        cpuTurn = false;
+        resetColor();
+        power = true;
+    }
+
+    if (cpuTurn) {
+        resetColor();
+        setTimeout(() => {
+            if (order[flash] == 1) topLeft();
+            if (order[flash] == 2) topRight();
+            if (order[flash] == 3) bottomLeft();
+            if (order[flash] == 4) bottomRight();
+            flash ++;
+        }, 200);
+    }
+
+}
+
+function topLeft() {
+
+}
+
+function topRight() {
+
+}
+function bottomLeft() {
+
+}
+function bottomRight() {
     
 }
+
+
 
 
 
