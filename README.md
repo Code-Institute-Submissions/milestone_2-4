@@ -37,6 +37,7 @@ Javascript
 Testing:
 --------
 
+Javascript everntlistener's tested and working for teh following buttons : difficultyButton , topleft, topRight, bottomLeft, bottomRight , powerButton and StartButton.
 
 Deployment:
 ------------

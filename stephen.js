@@ -22,7 +22,15 @@ const powerButton = document.querySelector("#power");
 const startButton = document.querySelector("#start");
 
 difficultyButton.addEventListener('click', (event) => {
-    console.log("test");
+
+     if(difficultyButton.checked == true) {
+         difficult = true;
+         console.log("difficult setting is on")
+     } else {
+         difficult = false;
+         console.log("difficult setting is off")
+     }
+    
 })
 
 
@@ -42,10 +50,17 @@ bottomLeft.addEventListener('click', (event) => {
 })
 
 powerButton.addEventListener('click', (event) => {
-    console.log("test power");
+    if (powerButton.checked == true) {
+        power = true;
+        console.log("Power is On")
+    } else {
+        power = false ;
+        console.log("Power is off")
+    }
 })
 
 startButton.addEventListener('click', (event) => {
     console.log("test start");
+    
 })
 
