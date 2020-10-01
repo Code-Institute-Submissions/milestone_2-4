@@ -69,7 +69,7 @@ function play() {
         order.push(Math.floor(Math.random() *4) + 1);    // create's an array of 20 random numbers between 1 and 4.
     }
     console.log(order)
-    cpuTurn = True;
+    cpuTurn = true;
 
     breakId = setInterval(gameStage, 800);
 }
@@ -87,31 +87,45 @@ function gameStage() {
     if (cpuTurn) {
         resetColor();
         setTimeout(() => {
-            if (order[flash] == 1) topLeft();
-            if (order[flash] == 2) topRight();
-            if (order[flash] == 3) bottomLeft();
-            if (order[flash] == 4) bottomRight();
+            if (order[flash] == 1) topLeftFlash();
+            if (order[flash] == 2) topRightFlash();
+            if (order[flash] == 3) bottomLeftFlash();
+            if (order[flash] == 4) bottomRightFlash();
             flash ++;
         }, 200);
     }
 
 }
 
-function topLeft() {
+function topLeftFlash() {
+    topLeft.style.backgroundColor = "lightgreen";
 
 }
 
-function topRight() {
+function topRightFlash() {
+    topRight.style.backgroundColor = "darkred";
 
 }
-function bottomLeft() {
+function bottomLeftFlash() {
+    bottomLeft.style.backgroundColor = "lightblue";
 
 }
-function bottomRight() {
+function bottomRightFlash() {
+    bottomRight.style.backgroundColor = "lightyellow";
     
 }
 
+function resetColor() {
+    topLeft.style.backgroundColor = "green";
+    topRight.style.backgroundColor = "red";
+    bottomLeft.style.backgroundColor = "blue";
+    bottomRight.style.backgroundColor = "yellow";
 
+}
+
+function resetBreak() {
+
+}
 
 
 
