@@ -123,6 +123,14 @@ function resetColor() {
 
 }
 
+function flashAll() {
+    topLeft.style.backgroundColor = "green";
+    topRight.style.backgroundColor = "red";
+    bottomLeft.style.backgroundColor = "blue";
+    bottomRight.style.backgroundColor = "yellow";
+
+}
+
 function resetBreak() {
 
 }
@@ -134,6 +142,7 @@ topLeft.addEventListener('click', (event) => {
     console.log("test TL");
     if (power) {
         playerOrder.push(1);
+        playerCheck();
         topLeftFlash();
         if(!win) {
             setTimeout(() => {
@@ -147,6 +156,7 @@ topRight.addEventListener('click', (event) => {
     console.log("test TR");
     if (power) {
         playerOrder.push(2);
+        playerCheck();
         topRightFlash();
         if(!win) {
             setTimeout(() => {
@@ -160,6 +170,7 @@ bottomRight.addEventListener('click', (event) => {
     console.log("test BR");
     if (power) {
         playerOrder.push(4);
+        playerCheck();
         bottomRightFlash();
         if(!win) {
             setTimeout(() => {
@@ -172,6 +183,7 @@ bottomLeft.addEventListener('click', (event) => {
     console.log("test BL");
     if (power) {
         playerOrder.push(3);
+        playerCheck();
         bottomLeftFlash();
         if(!win) {
             setTimeout(() => {
@@ -188,13 +200,41 @@ function playerCheck() {
     if(playerOrder.length == 20 && correct){
         
     }
-    if (good == false){
+    if (correct == false){
+       flashAll();
        turnCounter.innerHTML = "XXX";
        setTimeout(() => {
            turnCounter.innerHTML = turn;
            resetColor();
+
+           if(difficult) {
+               play();
+           } else {
+               cpuTurn = true;
+               flash = 0;
+               playerOrder = [];
+               correct = true;
+               breakId = setInterval(gameStage, 800);
+           }
        }, 800);
+
     }
+
+    if (turn == playerOrder.length && correct && !win) {
+        turn++;
+        playerOrder = [];
+        cpuTurn = true;
+        flash = 0 ;
+        turnCounter.innerHTML = turn;
+        breakId = setInterval(gameStage, 800);
+    }
+}
+
+function victory() {
+    flashAll();
+    turnCounter.innerHTML = "WIN"
+    power = false;
+    win = true;
 }
 
 
