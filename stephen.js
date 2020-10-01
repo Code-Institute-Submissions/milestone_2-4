@@ -98,28 +98,28 @@ function gameStage() {
 }
 
 function topLeftFlash() {
-    topLeft.style.backgroundColor = "lightgreen";
+    topLeft.style.backgroundColor = "green";
 
 }
 
 function topRightFlash() {
-    topRight.style.backgroundColor = "darkred";
+    topRight.style.backgroundColor = "red";
 
 }
 function bottomLeftFlash() {
-    bottomLeft.style.backgroundColor = "lightblue";
+    bottomLeft.style.backgroundColor = "blue";
 
 }
 function bottomRightFlash() {
-    bottomRight.style.backgroundColor = "lightyellow";
+    bottomRight.style.backgroundColor = "yellow";
     
 }
 
 function resetColor() {
-    topLeft.style.backgroundColor = "green";
-    topRight.style.backgroundColor = "red";
-    bottomLeft.style.backgroundColor = "blue";
-    bottomRight.style.backgroundColor = "yellow";
+    topLeft.style.backgroundColor = "darkgreen";
+    topRight.style.backgroundColor = "darkred";
+    bottomLeft.style.backgroundColor = "darkblue";
+    bottomRight.style.backgroundColor = "#CCCC00";
 
 }
 
@@ -132,18 +132,70 @@ function resetBreak() {
 
 topLeft.addEventListener('click', (event) => {
     console.log("test TL");
+    if (power) {
+        playerOrder.push(1);
+        topLeftFlash();
+        if(!win) {
+            setTimeout(() => {
+                resetColor;
+            }, 300);
+        }
+    }
 })
 
 topRight.addEventListener('click', (event) => {
     console.log("test TR");
+    if (power) {
+        playerOrder.push(2);
+        topRightFlash();
+        if(!win) {
+            setTimeout(() => {
+                resetColor;
+            }, 300);
+        }
+    }
 })
 
 bottomRight.addEventListener('click', (event) => {
     console.log("test BR");
+    if (power) {
+        playerOrder.push(4);
+        bottomRightFlash();
+        if(!win) {
+            setTimeout(() => {
+                resetColor;
+            }, 300);
+        }
+    }
 })
 bottomLeft.addEventListener('click', (event) => {
     console.log("test BL");
+    if (power) {
+        playerOrder.push(3);
+        bottomLeftFlash();
+        if(!win) {
+            setTimeout(() => {
+                resetColor;
+            }, 300);
+        }
+    }
 })
+
+
+function playerCheck() {
+    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length -1]) correct = false;
+
+    if(playerOrder.length == 20 && correct){
+        
+    }
+    if (good == false){
+       turnCounter.innerHTML = "XXX";
+       setTimeout(() => {
+           turnCounter.innerHTML = turn;
+           resetColor();
+       }, 800);
+    }
+}
 
 
 

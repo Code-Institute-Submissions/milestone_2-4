@@ -39,6 +39,8 @@ Testing:
 
 Javascript everntlistener's tested and working for teh following buttons : difficultyButton , topleft, topRight, bottomLeft, bottomRight , powerButton and StartButton.
 
+bug - when 2 is entered into the array - topRight flashs but then bottomRight stays on - no error message in console. Seems the bug is when you turn game on and hit start more than 2 times.
+
 Deployment:
 ------------
 
