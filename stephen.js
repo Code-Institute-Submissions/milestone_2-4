@@ -153,7 +153,7 @@ topRight.addEventListener('click', (event) => {
         topRightFlash();
         if(!win) {
             setTimeout(() => {
-                resetColor;
+                resetColor();
             }, 300);
         }
     }
@@ -167,7 +167,7 @@ bottomRight.addEventListener('click', (event) => {
         bottomRightFlash();
         if(!win) {
             setTimeout(() => {
-                resetColor;
+                resetColor();
             }, 300);
         }
     }
@@ -180,7 +180,7 @@ bottomLeft.addEventListener('click', (event) => {
         bottomLeftFlash();
         if(!win) {
             setTimeout(() => {
-                resetColor;
+                resetColor();
             }, 300);
         }
     }
