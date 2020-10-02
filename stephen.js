@@ -2,7 +2,7 @@
 
 
 let order = [];          // intialising an Array for sequences and declaring variables for different states of the game.
-let playerOrder = []      
+let playerOrder = [] ;     
 let flash;               
 let turn;
 let correct;         
@@ -44,7 +44,7 @@ powerButton.addEventListener('click', (event) => {
         console.log("Power is off")
         turnCounter.innerHTML = "";
         resetColor();
-        resetBreak(breakId);
+        clearInterval(breakId);
     }
 });
 
@@ -65,7 +65,7 @@ function play() {
     turn = 1 ;
     turnCounter.innerHTML = 1;
     correct = true;
-    for (var i = 0 ; i < 20; i++) {
+    for (var i = 0; i < 20; i++) {
         order.push(Math.floor(Math.random() *4) + 1);    // create's an array of 20 random numbers between 1 and 4.
     }
     console.log(order)
@@ -78,7 +78,7 @@ function gameStage() {
     power = false;
 
     if (flash == turn){
-        resetBreak(breakId);
+        clearInterval(breakId);
         cpuTurn = false;
         resetColor();
         power = true;
@@ -130,13 +130,6 @@ function flashAll() {
     bottomRight.style.backgroundColor = "yellow";
 
 }
-
-function resetBreak() {
-
-}
-
-
-
 
 topLeft.addEventListener('click', (event) => {
     console.log("test TL");
