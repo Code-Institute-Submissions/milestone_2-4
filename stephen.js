@@ -139,7 +139,7 @@ topLeft.addEventListener('click', (event) => {
         topLeftFlash();
         if(!win) {
             setTimeout(() => {
-                resetColor;
+                resetColor();
             }, 300);
         }
     }
