@@ -22,33 +22,31 @@ const difficultyButton = document.querySelector("#difficulty");
 const powerButton = document.querySelector("#power");
 const startButton = document.querySelector("#start");
 
-difficultyButton.addEventListener('click', (event) => {
+difficultyButton.addEventListener('click', (event) => {                //event listener to check if the difficulty settings has been checked.
 
      if(difficultyButton.checked == true) {
          difficult = true;
-         console.log("difficult setting is on")
+         
      } else {
          difficult = false;
-         console.log("difficult setting is off")
+        
      }
     
 })
 
-powerButton.addEventListener('click', (event) => {
+powerButton.addEventListener('click', (event) => {                // event listener to check if the power button has been enabled. 
     if (powerButton.checked == true) {
         power = true;
-        console.log("Power is On")
         turnCounter.innerHTML = "-";
     } else {
         power = false ;
-        console.log("Power is off")
         turnCounter.innerHTML = "";
         resetColor();
         clearInterval(breakId);
     }
 });
 
-startButton.addEventListener('click', (event) => {
+startButton.addEventListener('click', (event) => {              // event listener to start the game via the start button. 
     if(power || win ) {
         play();   // main play game function
     }
@@ -59,7 +57,7 @@ startButton.addEventListener('click', (event) => {
 function play() {
     win = false;
     order = [];
-    playerOrder = [];
+    playerOrder = [];                    // initialising the values of the variables to make sure they are correct at the start of the game.
     flash = 0;
     breakId = 0;
     turn = 1 ;
@@ -71,7 +69,7 @@ function play() {
     console.log(order)
     cpuTurn = true;
 
-    breakId = setInterval(gameStage, 800);
+    breakId = setInterval(gameStage, 800);        // sets the time between each stage of the game. Could lower the number to increase the dificulty. 
 }
 
 function gameStage() {
@@ -80,14 +78,14 @@ function gameStage() {
     if (flash == turn){
         clearInterval(breakId);
         cpuTurn = false;
-        resetColor();
+        resetColor();                     // makes sures are colors are set to defauly settings and none of them are lit.
         power = true;
     }
 
     if (cpuTurn) {
         resetColor();
         setTimeout(() => {
-            if (order[flash] == 1) topLeftFlash();
+            if (order[flash] == 1) topLeftFlash();              // Create the a flash on a color - selection will be determined from what is contained in the array.
             if (order[flash] == 2) topRightFlash();
             if (order[flash] == 3) bottomLeftFlash();
             if (order[flash] == 4) bottomRightFlash();
@@ -98,26 +96,26 @@ function gameStage() {
 }
 
 function topLeftFlash() {
-    topLeft.style.backgroundColor = "green";
+    topLeft.style.backgroundColor = "green";          // flashes top left green function.       
 
 }
 
-function topRightFlash() {
-    topRight.style.backgroundColor = "red";
+function topRightFlash() {  
+    topRight.style.backgroundColor = "red";                // flashes top right red function.
 
 }
 function bottomLeftFlash() {
-    bottomLeft.style.backgroundColor = "blue";
+    bottomLeft.style.backgroundColor = "blue";                 // flashes bottom left blue function .
 
 }
 function bottomRightFlash() {
-    bottomRight.style.backgroundColor = "yellow";
+    bottomRight.style.backgroundColor = "yellow";              //flashes bottom right yellow function.
     
 }
 
 function resetColor() {
     topLeft.style.backgroundColor = "darkgreen";
-    topRight.style.backgroundColor = "darkred";
+    topRight.style.backgroundColor = "darkred";                    // resets the colors to be sure they are not stuck lit.
     bottomLeft.style.backgroundColor = "darkblue";
     bottomRight.style.backgroundColor = "#CCCC00";
 
@@ -125,14 +123,14 @@ function resetColor() {
 
 function flashAll() {
     topLeft.style.backgroundColor = "green";
-    topRight.style.backgroundColor = "red";
+    topRight.style.backgroundColor = "red";                   // flashes all selections - used for when incorrect selction is made and for a win.
     bottomLeft.style.backgroundColor = "blue";
     bottomRight.style.backgroundColor = "yellow";
 
 }
 
-topLeft.addEventListener('click', (event) => {
-    console.log("test TL");
+topLeft.addEventListener('click', (event) => {                        // event listener used on  player selection with check if correct function for topleft.
+
     if (power) {
         playerOrder.push(1);
         playerCheck();
@@ -145,8 +143,8 @@ topLeft.addEventListener('click', (event) => {
     }
 })
 
-topRight.addEventListener('click', (event) => {
-    console.log("test TR");
+topRight.addEventListener('click', (event) => {                     // event listener used on  player selection with check if correct function for topRight.
+
     if (power) {
         playerOrder.push(2);
         playerCheck();
@@ -159,8 +157,8 @@ topRight.addEventListener('click', (event) => {
     }
 })
 
-bottomRight.addEventListener('click', (event) => {
-    console.log("test BR");
+bottomRight.addEventListener('click', (event) => {                  // event listener used on  player selection with check if correct function for bottomRight.
+
     if (power) {
         playerOrder.push(4);
         playerCheck();
@@ -172,8 +170,8 @@ bottomRight.addEventListener('click', (event) => {
         }
     }
 })
-bottomLeft.addEventListener('click', (event) => {
-    console.log("test BL");
+bottomLeft.addEventListener('click', (event) => {               // event listener used on  player selection with check if correct function for bottomleft
+
     if (power) {
         playerOrder.push(3);
         playerCheck();
@@ -188,10 +186,10 @@ bottomLeft.addEventListener('click', (event) => {
 
 
 function playerCheck() {
-    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length -1]) correct = false;
+    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length -1]) correct = false;       // function to check users input selection and compare to array values. 
 
     if(playerOrder.length == 20 && correct){
-        
+        victory();
     }
     if (correct == false){
        flashAll();
@@ -225,7 +223,7 @@ function playerCheck() {
 
 function victory() {
     flashAll();
-    turnCounter.innerHTML = "WIN"
+    turnCounter.innerHTML = "WIN"                      // Victory function to show that user has won the game. 
     power = false;
     win = true;
 }
