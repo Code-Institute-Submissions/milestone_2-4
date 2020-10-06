@@ -21,12 +21,17 @@ difficulty setting works.
 
 Displays stage
 
+reseting the game 
+
 Features Left to Implement:  
 ---------------------------
 
 Design user interface for the games - improve user interface . 
 
-reseting the game 
+Need to revamp user interface before submitting. 
+
+Need to style power button , start button and difficulty button.
+
 
 Technologies Used:
 ------------------
@@ -45,6 +50,17 @@ bug - when 2 is entered into the array - topRight flashs but then bottomRight st
 bug - flash stays on when button is pressed - FIXED(Function was missing () )
 
 bug - after button selection top left by user flash stats on - FIXED (function was mising () again)
+
+tested - game level progress all the way to 20. 
+
+tested - win function inner.html shows win and selections flash and stay on till START / or power off/on the game. 
+
+tested - game level progress with difficulty button enabled. 
+
+tested - clear flash so colors reset to normal. 
+
+
+
 
 Deployment:
 ------------
