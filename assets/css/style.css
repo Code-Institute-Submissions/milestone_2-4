@@ -18,27 +18,39 @@
 
 /* Button selectors     */
 
+button:active {
+    outline: none;
+}
+
 .button-selectors button {
     width: 180px;
     height: 180px;
+    border-color:transparent;
+    outline: none;
 }
 
 .button-1 {
     background-color: darkgreen;
     border-radius: 100% 0 0 0;
     right: 50%;
+    border-color: transparent;
+    outline: none;
 }
 
 .button-2 {
     background-color: darkred;
     border-radius: 0 100% 0 0;
     left: 50%;
+    border-color: transparent;
+    outline: none;
 }
 
 .button-3 {
     background-color: darkblue;
     top: 25%;
     border-radius: 0 0 0 100% ;
+    border-color: transparent;
+    outline: none;
 
 }
 
@@ -46,6 +58,8 @@
     background-color: #CCCC00;
     top: 25%;
     border-radius: 0 0 100% 0;
+    border-color: transparent;
+    outline: none;
 }
 
 /* Controls */

@@ -59,12 +59,15 @@ tested - game level progress with difficulty button enabled.
 
 tested - clear flash so colors reset to normal. 
 
+Used JSHint to search for error is JS file. (Some semi colons missing and other version warnings) Fixed colons.
 
-
+Removed outlin when a button is selected. Using outline: none in CSS. resource in Credits;
 
 Deployment:
 ------------
 
+
+git hub : https://skeogh89.github.io/milestone_2/
 
 Credits:
 ---------
@@ -80,3 +83,5 @@ https://www.w3schools.com/js/js_htmldom_eventlistener.asp
 https://www.w3schools.com/js/js_if_else.asp
 
 https://www.w3schools.com/js/js_loop_for.asp
+
+https://stackoverflow.com/questions/26004898/css-border-appears-on-click

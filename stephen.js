@@ -2,15 +2,15 @@
 
 
 let order = [];          // intialising an Array for sequences and declaring variables for different states of the game.
-let playerOrder = [] ;     
-let flash;               
+let playerOrder = [];
+let flash;
 let turn;
-let correct;         
+let correct;
 let cpuTurn;
 let breakId;
-let difficult = false;  
+let difficult = false;
 let power = false;
-let win ; 
+let win;
 
 
 const turnCounter = document.querySelector("#turn");
@@ -24,22 +24,22 @@ const startButton = document.querySelector("#start");
 
 difficultyButton.addEventListener('click', (event) => {                //event listener to check if the difficulty settings has been checked.
 
-     if(difficultyButton.checked == true) {
-         difficult = true;
-         
-     } else {
-         difficult = false;
-        
-     }
-    
-})
+    if (difficultyButton.checked == true) {
+        difficult = true;
+
+    } else {
+        difficult = false;
+
+    }
+
+});
 
 powerButton.addEventListener('click', (event) => {                // event listener to check if the power button has been enabled. 
     if (powerButton.checked == true) {
         power = true;
         turnCounter.innerHTML = "-";
     } else {
-        power = false ;
+        power = false;
         turnCounter.innerHTML = "";
         resetColor();
         clearInterval(breakId);
@@ -47,10 +47,10 @@ powerButton.addEventListener('click', (event) => {                // event liste
 });
 
 startButton.addEventListener('click', (event) => {              // event listener to start the game via the start button. 
-    if(power || win ) {
+    if (power || win) {
         play();   // main play game function
     }
-    
+
 });
 
 
@@ -60,13 +60,13 @@ function play() {
     playerOrder = [];                    // initialising the values of the variables to make sure they are correct at the start of the game.
     flash = 0;
     breakId = 0;
-    turn = 1 ;
+    turn = 1;
     turnCounter.innerHTML = 1;
     correct = true;
     for (var i = 0; i < 20; i++) {
-        order.push(Math.floor(Math.random() *4) + 1);    // create's an array of 20 random numbers between 1 and 4.
+        order.push(Math.floor(Math.random() * 4) + 1);    // create's an array of 20 random numbers between 1 and 4.
     }
-    console.log(order)
+    console.log(order);
     cpuTurn = true;
 
     breakId = setInterval(gameStage, 800);        // sets the time between each stage of the game. Could lower the number to increase the dificulty. 
@@ -75,7 +75,7 @@ function play() {
 function gameStage() {
     power = false;
 
-    if (flash == turn){
+    if (flash == turn) {
         clearInterval(breakId);
         cpuTurn = false;
         resetColor();                     // makes sures are colors are set to defauly settings and none of them are lit.
@@ -89,7 +89,7 @@ function gameStage() {
             if (order[flash] == 2) topRightFlash();
             if (order[flash] == 3) bottomLeftFlash();
             if (order[flash] == 4) bottomRightFlash();
-            flash ++;
+            flash++;
         }, 200);
     }
 
@@ -100,7 +100,7 @@ function topLeftFlash() {
 
 }
 
-function topRightFlash() {  
+function topRightFlash() {
     topRight.style.backgroundColor = "red";                // flashes top right red function.
 
 }
@@ -110,7 +110,7 @@ function bottomLeftFlash() {
 }
 function bottomRightFlash() {
     bottomRight.style.backgroundColor = "yellow";              //flashes bottom right yellow function.
-    
+
 }
 
 function resetColor() {
@@ -135,13 +135,13 @@ topLeft.addEventListener('click', (event) => {                        // event l
         playerOrder.push(1);
         playerCheck();
         topLeftFlash();
-        if(!win) {
+        if (!win) {
             setTimeout(() => {
                 resetColor();
             }, 300);
         }
     }
-})
+});
 
 topRight.addEventListener('click', (event) => {                     // event listener used on  player selection with check if correct function for topRight.
 
@@ -149,13 +149,13 @@ topRight.addEventListener('click', (event) => {                     // event lis
         playerOrder.push(2);
         playerCheck();
         topRightFlash();
-        if(!win) {
+        if (!win) {
             setTimeout(() => {
                 resetColor();
             }, 300);
         }
     }
-})
+});
 
 bottomRight.addEventListener('click', (event) => {                  // event listener used on  player selection with check if correct function for bottomRight.
 
@@ -163,51 +163,51 @@ bottomRight.addEventListener('click', (event) => {                  // event lis
         playerOrder.push(4);
         playerCheck();
         bottomRightFlash();
-        if(!win) {
+        if (!win) {
             setTimeout(() => {
                 resetColor();
             }, 300);
         }
     }
-})
+});
 bottomLeft.addEventListener('click', (event) => {               // event listener used on  player selection with check if correct function for bottomleft
 
     if (power) {
         playerOrder.push(3);
         playerCheck();
         bottomLeftFlash();
-        if(!win) {
+        if (!win) {
             setTimeout(() => {
                 resetColor();
             }, 300);
         }
     }
-})
+});
 
 
 function playerCheck() {
-    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length -1]) correct = false;       // function to check users input selection and compare to array values. 
+    if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1]) correct = false;       // function to check users input selection and compare to array values. 
 
-    if(playerOrder.length == 20 && correct){
+    if (playerOrder.length == 20 && correct) {
         victory();
     }
-    if (correct == false){
-       flashAll();
-       turnCounter.innerHTML = "XXX";
-       setTimeout(() => {
-           turnCounter.innerHTML = turn;
-           resetColor();
+    if (correct == false) {
+        flashAll();
+        turnCounter.innerHTML = "XXX";
+        setTimeout(() => {
+            turnCounter.innerHTML = turn;
+            resetColor();
 
-           if(difficult) {
-               play();
-           } else {
-               cpuTurn = true;
-               flash = 0;
-               playerOrder = [];
-               correct = true;
-               breakId = setInterval(gameStage, 800);
-           }
-       }, 800);
+            if (difficult) {
+                play();
+            } else {
+                cpuTurn = true;
+                flash = 0;
+                playerOrder = [];
+                correct = true;
+                breakId = setInterval(gameStage, 800);
+            }
+        }, 800);
 
     }
 
@@ -215,7 +215,7 @@ function playerCheck() {
         turn++;
         playerOrder = [];
         cpuTurn = true;
-        flash = 0 ;
+        flash = 0;
         turnCounter.innerHTML = turn;
         breakId = setInterval(gameStage, 800);
     }
@@ -223,7 +223,7 @@ function playerCheck() {
 
 function victory() {
     flashAll();
-    turnCounter.innerHTML = "WIN"                      // Victory function to show that user has won the game. 
+    turnCounter.innerHTML = "WIN";                    // Victory function to show that user has won the game. 
     power = false;
     win = true;
 }
