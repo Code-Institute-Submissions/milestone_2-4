@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stephen Memory game</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
-   
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Stephen Memory game</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/style.css">
+
 </head>
+
 <body>
-    <h1 class="text-center heading">Stephen's Memory Game</h1>  
-    <div class="container-sm stephen-game button-selectors">
-        <div class="row text-center"> 
-            <button class="button-1" id="topLeft">1</button>
-            <button class="button-2" id="topRight">2</button>
-        </div>
-        <div class="row">
-            <button class="button-3" id="bottomLeft">3</button>
-            <button class="button-4" id="bottomRight">4</button>
-        </div>
-    </div>
-    <div class="container-lg controls text-center">
-        <div class="row">
-            <div class="col">
-                <input  type="checkbox" class="power" id="power">On/Off</input>
-            </div>
-            <div class="col">
-                    <input type="checkbox" id="difficulty" class="difficulty">Difficulty</input>
-                </div>
-            <div class="col">
-                <button type="button" id="start" class="start">Start</button>
-            </div>   
-        </div>
-    </div>
-     <div class="container-lg difficulty text-center">
-            <div class="row">
-                <div class="col" id="turn"></div>
-            </div>
-        </div>   
-    <script src="stephen.js"></script>  
+	<h1 class="text-center heading">Stephen's Memory Game</h1>
+	<div class="container-sm stephen-game button-selectors">
+		<div class="row text-center">
+			<button class="button-1" id="topLeft">1</button>
+			<button class="button-2" id="topRight">2</button>
+		</div>
+		<div class="row">
+			<button class="button-3" id="bottomLeft">3</button>
+			<button class="button-4" id="bottomRight">4</button>
+		</div>
+	</div>
+	<div class="container-lg controls text-center">
+		<div class="row">
+			<div class="col">
+				<input  type="checkbox" class="power" id="power">On/Off</input>
+			</div>
+			<div class="col">
+				<input type="checkbox" id="difficulty" class="difficulty">Difficulty</input>
+			</div>
+			<div class="col">
+				<button type="button" id="start" class="start">Start</button>
+			</div>
+		</div>
+	</div>
+	<div class="container-lg difficulty text-center">
+		<div class="row">
+			<div class="col" id="turn"></div>
+		</div>
+	</div>
+	<script src="stephen.js"></script>
 </body>
+
 </html>

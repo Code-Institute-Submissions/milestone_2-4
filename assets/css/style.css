@@ -58,9 +58,15 @@
 
 .start {
 
+    border-radius: 50%;
+    background-color: lightgreen;
+    color: black;
+    width: 150px;
+
 }
 
 .power {
+     border-radius: 50%;
 
 }
 
@@ -72,13 +78,5 @@
 .difficulty button {
     width: 70px;
     height: 60px;
+    border-radius: 50%;
 }
-
-.dif-plus {
-
-}
-
-.dif-minus {
-
-}
-
